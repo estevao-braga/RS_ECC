@@ -5,7 +5,7 @@ Este projeto visa implementar o ECDSA (Elliptic Curve Digital Signature Algorith
 
 ## Equação Geral
 A equação de Weierstrass refere-se a uma forma específica de equação que descreve uma curva elíptica cujo a forma geral definida sobre um corpo $K$ (como os números reais ou complexos) é dada por: $$y^2= x^3 + ax + b$$ onde $4a^3 + 27b^3$ não pode ser igual a $0$.
-<br>
+
 A equação de Weierstrass descreve uma curva elíptica no plano coordenado, e a sua forma específica é escolhida de modo a garantir que a curva tenha propriedades importantes, como a associatividade da operação de soma de pontos e a existência de um ponto de identidade. As constantes 
 $a$ e $b$ afetam a localização e a inclinação da curva elíptica no plano.
 
@@ -23,7 +23,7 @@ $$y₃ = λ(x₁ - x₃) - y₁$$
 
 ### Multiplicação por escalar e o problema do logaritmo discreto
 A multiplicação por escalar em curvas elípticas, especialmente quando implementada com o algoritmo Double and Add, desempenha um papel crucial em algoritmos criptográficos como o ECDSA. Este processo envolve a multiplicação de um ponto na curva por um escalar (um número inteiro), resultando em um novo ponto na curva.
-<br>
+
 A segurança de algoritmos baseados em curvas elípticas, como o ECDSA repousa na dificuldade do Problema do Logaritmo Discreto em curvas elípticas. Esse problema, em termos simples, consiste em encontrar o expoente $d$ na equação $Q=d*G$, onde $G$ é um ponto base conhecido e $Q$ é um ponto qualquer na curva. O algoritmo de multiplicação por escalar é fundamental nesse contexto, já que a dificuldade de inverter essa operação é o que confere a segurança do sistema. 
 
 ### Ponto de Identidade:
@@ -39,9 +39,8 @@ A soma de pontos em uma curva elíptica possui propriedades de grupo, incluindo 
 O ECDSA, ou Elliptic Curve Digital Signature Algorithm, é um algoritmo de assinatura digital baseado em curvas elípticas. Este algoritmo faz parte da família de algoritmos de criptografia de chave pública e é amplamente utilizado para garantir a autenticidade e a integridade de dados em sistemas de comunicação seguros.
 
 ### 1 - Geração de Chaves
-Para fins didádicos chamaremos os dois agentes nesse exemplo de Alice e Bob. 
-<br>Primeiramente é definida a curva $E(Z_p)$ com a ordem de $Z_p$ igual a um $q$ primo sobre a qual vamos trabalhar. E então escolhemos um elemento gerador $A \in E(Z_p)$. 
-<br>
+Primeiramente é definida a curva $E(Z_p)$ com a ordem de $Z_p$ igual a um $q$ primo sobre a qual vamos trabalhar. E então escolhemos um elemento gerador $A \in E(Z_p)$. 
+
 - Alice gera uma chave privada aleatória $d \in Z_p$ de forma que $0 < d < q$. 
 - Depois Alice calcula a chave pública $B = d*A$ a partir de chave privada e do gerador do grupo.
 
