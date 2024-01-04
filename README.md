@@ -13,12 +13,23 @@ $a$ e $b$ afetam a localização e a inclinação da curva elíptica no plano.
 ## Operação de Soma
 
 Podemos definir a operação de soma de dois pontos $P(x_1, y_1)$ e $Q(x_2, y_2)$ pertencentes a uma curva elíptica $E(K)$ como 
-$$P(x_1, y_1) + Q(x_2, y_2) = R(x_3, y_3)$$
+$P(x_1, y_1) + Q(x_2, y_2) = R(x_3, y_3)$
 
-$$λ = (y₂ - y₁)(x₂ - x₁)⁻¹, P ≠ Q$$
-$$λ = (3x₁² + A)(2y₁)⁻¹, P = Q$$
-$$x₃ = λ² - x₁ - x₂$$
-$$y₃ = λ(x₁ - x₃) - y₁$$
+$$
+\lambda = (y₂ - y₁)(x₂ - x₁)⁻¹, P ≠ Q
+$$
+
+$$
+\lambda = (3x₁² + A)(2y₁)⁻¹, P = Q
+$$
+
+$$
+x₃ = \lambda² - x₁ - x₂
+$$
+
+$$
+y₃ = \lambda (x₁ - x₃) - y₁
+$$
 
 
 ### Multiplicação por escalar e o problema do logaritmo discreto
@@ -41,8 +52,8 @@ O ECDSA, ou Elliptic Curve Digital Signature Algorithm, é um algoritmo de assin
 ### 1 - Geração de Chaves
 Primeiramente é definida a curva $E(Z_p)$ com a ordem de $Z_p$ igual a um $q$ primo sobre a qual vamos trabalhar. E então escolhemos um elemento gerador $A \in E(Z_p)$. 
 
-- Alice gera uma chave privada aleatória $d \in Z_p$ de forma que $0 < d < q$. 
-- Depois Alice calcula a chave pública $B = d*A$ a partir de chave privada e do gerador do grupo.
+- Um usuário gera uma chave privada aleatória $d \in Z_p$ de forma que $0 < d < q$. 
+- Depois ele calcula a chave pública $B = d*A$ a partir de chave privada e do gerador do grupo.
 
 ### 2 - Assinatura da mensagem
 - Primeiro selecionamos um $k_e$ aleatório, $0 < k_e < q$.
@@ -53,12 +64,27 @@ Primeiramente é definida a curva $E(Z_p)$ com a ordem de $Z_p$ igual a um $q$ p
 ### 3 - Verificação da assinatura
 - $u_1 = S⁻¹ * hash(message) \mod q$.
 - $u_2 = S⁻¹* r \mod q$.
-- $P(x_p, y_p) = u_1*A + u_2*B$.
+- $P(x_p, y_p) = u_1 * A + u_2 * B$.
 - Se $x_p = r$ a assinatura está verificada.
 
 ### 4 - Prova
-$$S = (hash(message) + d*r)*K_e⁻¹\mod q$$
-$$k_e = S⁻¹*hash(message) + S⁻¹*d*r \mod q$$
-$$K_e*A = u_1*A + u_2*d*A \mod q$$
-$$K_e*A = u_1*A + u_2*B \mod q$$
-$$K_e*A = R(x_r, y_r) = u_1*A + u_2*B \mod q = P(x_p, y_p) $$
+
+$$
+S = (hash(message) + d*r)*K_e⁻¹ \mod q
+$$
+
+$$
+k_e = S⁻¹ * hash(message) + S⁻¹ * d* r \mod q
+$$
+
+$$
+K_e * A = u_1 * A + u_2 *d *A \mod q
+$$
+
+$$
+K_e * A = u_1 * A + u_2 * B \mod q
+$$
+
+$$
+K_e * A = R(x_r, y_r) = u_1 * A + u_2 * B \mod q = P(x_p, y_p) 
+$$
